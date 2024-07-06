@@ -1,0 +1,236 @@
+/* Global styles */
+body,
+html {
+  color: #fff;
+  background: #000;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Container for the whole application */
+.App {
+  text-align: center;
+}
+
+/* Section for starting the quiz */
+.start-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+.start-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #e2f259ef;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #a0c231d6;
+}
+
+/* Popup information component */
+.popup-info {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.popup-info.active {
+  display: block;
+}
+
+.popup-info h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.popup-info .continue-btn,
+.popup-info .exit-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #14771aab;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.popup-info .continue-btn:hover,
+.popup-info .exit-btn:hover {
+  background-color: #20640f;
+}
+
+/* Quiz box component */
+.quiz-box {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.9); /* Light background */
+  color: #000; /* Black text */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-box.active {
+  display: block;
+}
+
+.quiz-box .question-text {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.quiz-box .option-list {
+  display: flex;
+  flex-direction: column; /* Align options vertically */
+}
+
+.quiz-box .option {
+  cursor: pointer;
+  background-color: #c9c3c3be; /* White background */
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  margin-left: 20px; /* Add margin between options */
+  width: 90%; /* Option width to cover the container */
+}
+
+.quiz-box .option:hover {
+  background-color: #2d6f149a; /* Lighter hover background */
+}
+
+.quiz-box .option span {
+  font-size: 18px;
+}
+
+.quiz-box .quiz-footer {
+  margin-top: 20px;
+}
+
+.quiz-box .question-total {
+  font-size: 14px;
+  color: #ccc; /* Lighter text color */
+}
+
+.quiz-box .next-btn {
+  margin-top: auto; /* Align to the bottom */
+  align-self: flex-end; /* Align to the right */
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #6ab7ff; /* Light blue background */
+  color: #000; /* Black text */
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.quiz-box .next-btn:hover {
+  background-color: #135e28a4; /* Darker hover background */
+}
+
+/* Result box component */
+.result-box {
+  display: none;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.9); /* Light background */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.result-box.active {
+  display: block;
+}
+
+.result-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #000; /* Black text */
+}
+
+.result-box .percentage-container {
+  margin-bottom: 20px;
+}
+
+.result-box .circular-progress {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(#1a8d16, rgba(255, 255, 255, 0.1)); /* Green circular progress */
+  margin: 0 auto;
+  position: relative;
+}
+
+.result-box .progress-value {
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000; /* Black text */
+}
+
+.result-box .score-text {
+  font-size: 18px;
+  color: #000; /* Black text */
+}
+
+.result-box .buttons {
+  margin-top: 20px;
+}
+
+.result-box .tryagain-btn,
+.result-box .goHome-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #6ab7ff; /* Light blue background */
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+  color: #000; /* Black text */
+}
+
+.result-box .tryagain-btn:hover,
+.result-box .goHome-btn:hover {
+  background-color: #4f9edc; /* Darker hover background */
+}
+.quiz-box .question-total {
+  font-size: 14px;
+  color: #297410; /* Lighter text color */
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.option:hover {
+  background-color: #074307; /* Light green */
+}
